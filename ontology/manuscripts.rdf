@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/wlpotter/ontologies/manuscripts/"
+     xml:base="http://www.semanticweb.org/wlpotter/ontologies/manuscripts/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:oa="http://www.w3.org/ns/oa#"
+     xmlns:ns1="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:core="http://purl.org/ontology/olo/core#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/wlpotter/ontologies/manuscripts">
+        <owl:imports rdf:resource="http://lawd.info/ontology/1.0/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/wlpotter/ontologies/manuscripts#has_content_item -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#has_content_item">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#has_content_item"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#ManuscriptPart"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#has_content_item"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#ContentItem"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:label xml:lang="en">has content item</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/wlpotter/ontologies/manuscripts#identified_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#identified_by">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#Identifier"/>
+        <rdfs:label xml:lang="en">identified by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/wlpotter/ontologies/manuscripts#AdditionItem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#AdditionItem">
+        <rdfs:subClassOf rdf:resource="http://lawd.info/ontology/WrittenWork"/>
+        <rdfs:comment xml:lang="en">A piece or unit of content added to a manuscript, such as a colophon or reader&apos;s note</rdfs:comment>
+        <rdfs:label xml:lang="en">Addition Item</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wlpotter/ontologies/manuscripts#Collection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#Collection"/>
+    
+
+
+    <!-- http://www.semanticweb.org/wlpotter/ontologies/manuscripts#ContentItem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#ContentItem">
+        <rdfs:subClassOf rdf:resource="http://lawd.info/ontology/WrittenWork"/>
+        <rdfs:label xml:lang="en">Content Item</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wlpotter/ontologies/manuscripts#Identifier -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#Identifier">
+        <rdfs:subClassOf rdf:resource="http://erlangen-crm.org/current/E42_Identifier"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wlpotter/ontologies/manuscripts#Manuscript -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#Manuscript">
+        <rdfs:label xml:lang="en">Manuscript</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/wlpotter/ontologies/manuscripts#ManuscriptPart -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/wlpotter/ontologies/manuscripts#ManuscriptPart">
+        <rdfs:label xml:lang="en">Manuscript Part</rdfs:label>
+        <skos:altLabel xml:lang="en">Codicological Unit</skos:altLabel>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
