@@ -1,0 +1,163 @@
+{
+    "@context": {},
+    "@id": "https://bl.syriac.uk/ms/103",
+    "shelfmark": "Add. 14,439",
+    "wrightEntry": "XIX",
+    "collection": "Oriental Manuscripts",
+    "repository": "British Library",
+    "settlement": "London",
+    "country": "United Kingdom",
+    "form": "Codex",
+    "parts": [
+        {
+            "@id": "https://bl.syriac.uk/ms/103#Part1",
+            "dcterms:type": "https://bl.syriac.uk/documentation/wright-taxonomy#bible-ot",
+            "extent": {
+                "type": "leaf",
+                "label": "69 ff.",
+                "quantity": 69
+            },
+            "support": "perg",
+            "note": "Vellum, about 9 1/8 in. by 7, consisting of 69 leaves, many of which are much stained and torn, especially foll. 1, 2, 19\u201422, 33, 35, and 69. The quires, originally 14 in number, are signed with both letters and arithmetical figures; e.g. fol. 5, ܒ;fol. 34, ; fol. 48, ܝܒ; fol. 56, ܝܓ; fol. 64, ܝܕ. Leaves are wanting at the beginning and end, as well as after foll. 4, 12, 18, 20, 21, 28, 29, 31, 33, 34 and 40. Each page is divided into two columns, of from 18 to 22 lines. This manuscript is written in a large Estrangela of the vith or viith cent. A later hand has added Greek vowels here and there (α, ⲉ,ⲏ, or ϊ,foll. 9b,10a, οor ω,foll. 10a,13b,16a,ογ), and also Syriac vowel-points (for example, on foll. 17a, 24a and b, 25a).",
+            "creation": {
+                "origDate": {
+                    "start": "0500",
+                    "end": "0700",
+                    "label": "6th - 7th century, CE"
+                },
+                "origPlace": {}
+            },
+            "hands": [
+                {
+                    "@id": "https://bl.syriac.uk/ms/103#handNote1",
+                    "scope": "major",
+                    "language": "syr",
+                    "script": "Syre",
+                    "note": "This manuscript is written in a large Estrangela of the vith or viith cent."
+                },
+                {
+                    "@id": "https://bl.syriac.uk/ms/103#handNote2",
+                    "scope": "minor",
+                    "language": "syr",
+                    "script": "Syrj",
+                    "note": "See below."
+                },
+                {
+                    "@id": "https://bl.syriac.uk/ms/103#handNote3",
+                    "scope": "minor",
+                    "language": "syr",
+                    "script": "Syrn",
+                    "note": "See below."
+                },
+                {
+                    "@id": "https://bl.syriac.uk/ms/103#handNote4",
+                    "scope": "minor",
+                    "language": "syr",
+                    "script": "",
+                    "note": "See below. Note that Wright acknowledges the possibility that hands 2, 3, and 4 may all be the same hand."
+                }
+            ],
+            "contents": [
+                {
+                    "@id": "https://bl.syriac.uk/ms/103#a1",
+                    "language": "syr",
+                    "locus": {
+                        "from": "1a",
+                        "to": "29"
+                    },
+                    "embodies": "http://syriaca.org/work/6",
+                    "title": "The book of Joshua, according to the Peshitta version.",
+                    "author": [],
+                    "finalRubric": {
+                        "locus": {
+                            "from": "29",
+                            "to": "29"
+                        },
+                        "transcription": "ܫܠܡ . ܟܬܒܐ . ܕܝܫܘܥ . ܒܪܢܘܢ܀"
+                    }
+                },
+                {
+                    "@id": "https://bl.syriac.uk/ms/103#a2",
+                    "language": "syr",
+                    "locus": {
+                        "from": "29b",
+                        "to": "69"
+                    },
+                    "embodies": "http://syriaca.org/work/7",
+                    "title": "The book of Judges, according to the Peshitta version",
+                    "author": [],
+                    "finalRubric": {
+                        "locus": {
+                            "from": "29b",
+                            "to": "29b"
+                        },
+                        "transcription": "ܣܦܪ ܕܝ̈ܢܐ ܕܒܢ̈ܝ ܐܝܣܪܝܠ. ܕܡܬܩܪܐ. ܥܒܪܐܝܬ. ܫ̈ܦܛܐ܀"
+                    }
+                }
+            ],
+            "additions": [
+                {
+                    "@id": "https://bl.syriac.uk/ms/103#addition1",
+                    "note": "A later hand has added Greek vowels here and there (α, , , or ϊ, foll. 9b, 10a; ο or ω, foll. 10a, 13b, 16a, ογ)."
+                },
+                {
+                    "@id": "https://bl.syriac.uk/ms/103#addition2",
+                    "note": "A later hand has also added Syriac vowel-points (for example, on foll. 17a, 24a, 24b, 25a)."
+                },
+                {
+                    "@id": "https://bl.syriac.uk/ms/103#addition3",
+                    "note": "A modern hand (erhaps the same that added the vowels) has marked the lessons on the margins, and also appended a few notes, either referring to the text of the LXX., or explanatory of proper names and other words."
+                },
+                {
+                    "@id": "",
+                    "locus": {
+                        "from": "18b",
+                        "to": "18b"
+                    },
+                    "note": "In one place a Greek word is written on the margin by the same hand, viz. fol. 18b, κγροc (ܘܕܩܪܘܣ, Josh. xiii. 11)."
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "derivedFrom": "https://bl.syriac.uk/ms/103/tei",
+        "creator": [
+            "https://bl.syriac.uk/documentation/editors.xml#dmichelson",
+            "https://bl.syriac.uk/documentation/editors.xml#dgreeson",
+            "https://bl.syriac.uk/documentation/editors.xml#thannah",
+            "https://bl.syriac.uk/documentation/editors.xml#raydin"
+        ],
+        "respStmts": [
+            {
+                "agent": "https://bl.syriac.uk/documentation/editors.xml#dgreeson",
+                "resp": "Created by Daniel J. Greeson"
+            },
+            {
+                "agent": "https://bl.syriac.uk/documentation/editors.xml#thannah",
+                "resp": "Edited by Tucker D. Hannah"
+            },
+            {
+                "agent": "https://bl.syriac.uk/documentation/editors.xml#raydin",
+                "resp": "Syriac text entered by Robert Aydin"
+            },
+            {
+                "agent": "https://bl.syriac.uk/documentation/editors.xml#rstitt",
+                "resp": "Greek and coptic text entry and proofreading by Ryan Stitt"
+            },
+            {
+                "agent": "https://bl.syriac.uk/documentation/editors.xml#ewalston",
+                "resp": "Project management by Elizabeth Walston"
+            },
+            {
+                "agent": "https://bl.syriac.uk/documentation/editors.xml#uasyriacaresearchgroup",
+                "resp": "English text entry and proofreading by Syriac Research Group, University of Alabama"
+            },
+            {
+                "agent": "https://bl.syriac.uk/documentation/editors.xml#kurban",
+                "resp": "Folio extent edited by Kurt Urban"
+            }
+        ],
+        "edition": 1.0,
+        "pubDate": "2023-04-21-05:00"
+        }
+}
