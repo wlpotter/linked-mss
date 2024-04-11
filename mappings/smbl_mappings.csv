@@ -1,0 +1,57 @@
+LocalId	SMBL TEI Node Name	SMBL TEI Xpath	SMBL Interim JSONPath	SMBL Interim Xpath	Cardinality	MS Ontology Class	DataProcessing	DataType	Notes
+**		NOTE: a whole slew of record metadata could be logged…but maybe distinguish ones that can be attributed to a collection/named-graph level? E.g., m-level title, General Editors, etc.?	Note: using JSON Path notation, https://jsonpath.com/	The oXygen-style Xpath equivalent for the JSON Path in `SMBL Interim JSONPath`	Cardinality of the given field; possible future use could be to create SHACL rules for validation	Note: will be used for creating the JSON-LD context files	Indicates how the node in `SMBL TEI Xpath` should be processed by the data transformation script		
+node1	idno (TEI XML record)	/TEI/teiHeader/fileDesc/publicationStmt/idno[@type=”idno”]	$.meta.derivedFrom	/JSON/meta/derivedFrom	1		text node	URI	URI for the record/file, not the entity
+node2	country	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msIdentifier/country	$.country	/JSON/country	1		text node	?	needs standardized URI lookup
+node3	settlement	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msIdentifier/settlement	$.settlement	/JSON/settlement	1		text node	?	needs standardized URI lookup
+node4	repository	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msIdentifier/repository	$.repository	/JSON/repository	1		text node	?	needs standardized URI lookup
+node5	collection	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msIdentifier/collection	$.collection	/JSON/collection	1		text node	?	needs standardized URI lookup
+node6	idno (ms)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msIdentifier/idno[@type=”URI”]	$.@id	/JSON/_X40_id	1		text node	URI	URI for the entity
+node6a	idno (part)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msIdentifier/msPart/idno[@type=”URI”]	?	?	?	?	?	?	For single-part, construct as `ms-uri#Part1`?; for multi-part, they have a URI but may want a sameAs with the ms-uri#PartN?
+node7	idno (shelf mark)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msIdentifier/altIdentifier/idno[@type=”BL-Shelfmark”]	$.shelfmark	/JSON/shelfmark	1		text node	xsd:string	
+node8	idno (Wright entry)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msIdentifier/altIdentifier/idno[@type=”Wright-BL-Arabic”]	?	?	1	?	text node	xsd:integer	Might be in parts instead; maybe only include Roman numeral?
+node9	idno (Wright entry)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msIdentifier/altIdentifier/idno[@type=”Wright-BL-Roman”]	?	?	1?		text node	xsd:string	Might be in parts instead
+node10	relation (subject heading)	"/TEI/teiHeader/fileDesc/sourceDesc/msDesc/head/listRelation[@type=""Wright-BL-Taxonomy”]/relation[@ref=”http://purl.org/dc/terms/type”]/@passive"	$.parts.*.dcterms:type	/JSON/parts/dcterms:type	1?		attribute	URI	Might be in parts as well/instead | @ref has the URI for the predicate; @active is the URI for the ms or part; @passsive is the hashed reference to the subject term in the //taxonomy (should be an individual, need to declare these terms in the bl.syriac.uk domain)
+node11	textLang	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/textLang/@mainLang	$.parts.*.contents.*.language	/JSON/parts/contents/language	1		propagate	URI	Single instance but can be used for ms items’ language property; lookup/map to glottolog URIs
+node12	identifier (msItem)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/@xml:id	$.parts.*.contents.*.@id	/JSON/parts/contents/_X40_id	1		attribute	URI	construct the item’s URI from this
+node13	from (locus)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/locus/@from	$.parts.*.contents.*.locus.from	/JSON/parts/contents/locus/from	1?		attribute	xsd:string	
+node13a	to (locus)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/locus/@to	$.parts.*.contents.*.locus.to	/JSON/parts/contents/locus/to	1?		attribute	xsd:string	
+node14	author name	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/author	$.parts.*.contents.*.author.*.name	/JSON/parts/contents/author/name	1*		text node	xsd:string	could be editor with @type; get the URI if availble; but also need the label | author in JSON can be contexted to a creator attribution with name becoming attested name and ref becoming a person ref
+node14a	author (uri)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/author/@ref	$.parts.*.contents.*.author.*.ref	/JSON/parts/contents/author/ref	1*		attribute	URI	the @ref gives the Syriaca person URI
+node15	title	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/title	$.parts.*.contents.*.title	/JSON/parts/contents/title	1?		text node	xsd:string	text node becomes attests_title predicate; URI becomes the embodies predicate. Possibly have multiple attested titles?
+node15a	title (uri)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/title/@ref	$.parts.*.contents.*.embodies	/JSON/parts/contents/embodies	1?		attribute	URI	URI for Syriaca work record, if exists
+node16	rubric	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/rubric					multiple	multiple	bnode? Lang from xml:lang; locus if available
+node17	incipit	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/incipit					multiple	multiple	bnode? Lang from xml:lang; locus if available
+node18	quote	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/quote					multiple	multiple	bnode? Lang from xml:lang; locus if available
+node19	explicit	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/explicit					multiple	multiple	bnode? Lang from xml:lang; locus if available
+node20	finalRubric	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/finalRubric					multiple	multiple	bnode? Lang from xml:lang; locus if available
+node21	note	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/note	$.parts.*.contents.*.note	/JSON/parts/contents/note			text node	xsd:string	just as string? Pull out associated entities and/or bibls?
+node22	msItem (for parent-child relationships)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/msContents/msItem/msItem	$.parts.*.contents.*.contents.*	/JSON/parts/contents/contents			inferred	@list	Parent-child relations. Question: can we do previous/next sibling based on xml:id pattern?
+node23	p (physDesc)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/physDesc/p	$.parts.*.note	/JSON/parts/note	1*		text node	xsd:string	general note? Process any sub-elements if they exist?
+node24	form (objectDesc)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/physDesc/objectDesc/@form	$.form	/JSON/form	1?		attribute	URI	attribute string relates to an individual
+node25	material (objectDesc)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/physDesc/objectDesc/supportDesc/@material	$.parts.*.support	/JSON/parts/support	1?		attribute	URI	attribute string relates to an individual
+node26	measure (folio extent)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/physDesc/objectDesc/supportDesc/extent/measure[@type=”composition”][@unit=”leaf”]					multiple	multiple	could just need one xpath filter? decompose into @unit, @quantity and text node (the last as label)
+node27	handNote	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/physDesc/handDesc/handNote					multiple	multiple	@xml:id has the URI fragment; @script becomes individual for lang and script; possibly include scribe if persName??; text node becomes a note
+node28	decoNote	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/physDesc/decoDesc/decoNote					defer		not sure how to handle yet?
+node29	item (additions)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/physDesc/additions/list/item					multiple	multiple	@xml:id has the ID; might have references to other things, but  mostly has a locus, label, note, and maybe an excerpt if there’s a quote. What to do with attested entities?
+node30	origDate	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/history/origin/origDate					multiple	multiple	decompose into normalized date; calendar system; and label (I wish this was after the normalization happened…)
+node31	origPlace	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/history/origin/origPlace					multiple	multiple	decompose into label and ref to place
+node32	bibl (additional/listBibl)	/TEI/teiHeader/fileDesc/sourceDesc/msDesc/additional/listBibl/bibl					defer		becomes a citation; include the URI, link, cited range note, etc.
+node33	relation (ms objs and cod units)	"/TEI/teiHeader/fileDesc/sourceDesc/msDesc/head/listRelation[@type=""composite-to-parts”]/relation"	?				multiple	@list	inferred when a single-part, otherwise use this head (is it in msPart speec?). @ref gives the subtype of relationship (subprops of has-part); active and passive are the URIs
+node34	sponsor	/TEI/teiHeader/fileDesc/titleStmt/sponsor	Graph-level				text node	xsd:string	Could be URI. Project-level metadata
+node35	funder	/TEI/teiHeader/fileDesc/titleStmt/funder	Graph-level				text node	xsd:string	Could be URI. Project-level metadata
+node36	general editors	/TEI/teiHeader/fileDesc/titleStmt/editor[@role=”general-editor”]/@ref	Graph-level				attribute	URI	Project-level metadata
+node37	creator editors	/TEI/teiHeader/fileDesc/titleStmt/editor[@role=”creator”]/@ref	$.meta.creator.*	/JSON/meta/creator	1+		attribute	URI	
+node38	resp stmts	/TEI/teiHeader/fileDesc/titleStmt/respStmt					multiple	multiple	String-join resp and name with a space (comma sep if mult name) to become a label; ref is the URI for a person
+node39	edition number	/TEI/teiHeader/fileDesc/editionStmt/edition/@n	$.meta.edition	/JSON/meta/edition	1?		attribute	xsd:number	
+node40	publisher	/TEI/teiHeader/fileDesc/publicationStmt/authority	Graph-level				text node	xsd:string	Project-level
+node41	derived from record	/TEI/teiHeader/fileDesc/publicationStmt/idno	cf. node1				text node	URI	node1
+node42	rights	n/a	Graph-level				n/a		Project-level; inferred from knowledge of the project; should use http://rightsstatements.org/vocab/InC/1.0/
+node43	license	/TEI/teiHeader/fileDesc/publicationStmt/availability/licence/@target	Graph-level				attribute	URI	Project-level
+node44	pubDate	/TEI/teiHeader/fileDesc/publicationStmt/date	$.meta.pubDate	/JSON/meta/pubDate	1?		text node	xsd:dateTime	
+									
+									
+NOTE:		The goal of this table is to map the SMBL TEI XML structure to a JSON-LD representation following the manuscript descriptions ontology. This will be done via an interim data structure that collates the various elements into a structure more closely aligned to the JSON-LD 							
+NOTE:		PARTS!  The only thing that differs from the above is the addition of encoding the specific relationships between the parts							
+NOTE:		some physDescs can do dimensions, but not all. Some can do layout, etc.; maybe ignore for final but keep in mind for next phase							
+NOTE:		for lang codes, need to map to glottolog individuals?							
+NOTE:		ms to parts need a sequence or some kind of designation; or maybe a sameAs between smbl URI and the hashed part reference							
