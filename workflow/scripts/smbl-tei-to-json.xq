@@ -34,14 +34,37 @@ as item() {
   let $physDescNote := $part/physDesc/p//text() => string-join(" ") => normalize-space()
   
   let $origin := $part/history/origin
-  (:
-  TODO
-    - origDate --> dealing with non-Gregorian...
-    - notBefore, notAfter, and label (from text node)
-    - origPlace: get label and the ref as URI if available
-  :)
+  
+  let $origDate :=
+    array {
+      for $date in $origin/origDate
+      let $calendar := $date/@*[name() = "calendar" or name() = "datingMethod"]/string()
+      (: handle the inconsistency of how data is encoded here, e.g. notBefore, notBefore-custom, from, when, when-custom :)
+      (: when and when-custom included as notBefore, i.e. the start date, with no trailing date :)
+      let $start := $date/@*[contains(name(), "notBefore") or name() = "from" or contains(name(), "when")]/string()
+      let $end := $date/@*[contains(name(), "notAfter") or name() = "to"]/string()
+      let $label := $date//text() => string-join(" ") => normalize-space()
+      return map {
+        "calendar": $calendar,
+        "start": $start,
+        "end": $end,
+        "label": $label
+      }
+    }
+  
+  let $origPlace := map {
+    "@id": $origin/origPlace/@ref/string(),
+    "label": $origin/origPlace//text() => string-join(" ") => normalize-space()
+  }
+  
+  let $creation :=
+    map {
+      "origDate": ($origDate),
+      "origPlace": $origPlace
+    }
   
   let $hands :=
+  array {
     for $hand in $part/physDesc/handDesc/handNote
     let $handId := $ms-id||"#"||$hand/@xml:id/string()
     let $scope := $hand/@scope/string()
@@ -58,16 +81,23 @@ as item() {
       "script": $script,
       "note": $note
     }
+}
+
+  let $contentLang := $part/msContents/textLang/@mainLang/string() => functx:substring-before-if-contains("-")
   
-  (:
-  TODO: Contents
-  - call a sub-function to handle this
-  :)
+  let $contents := array {
+    for $item in $part/msContents/msItem
+    return local:create-msItem-map($item, $contentLang)
+  }
   
   (:
   TODO: Additions
   - call a sub-function to handle this
   :)
+  let $additions := array {
+    for $add in $part/physDesc/additions/list/item
+    return local:create-addition-map($add)
+  }
   
   (: Return a map of the part and its sub-objects :)
   return map {
@@ -76,9 +106,107 @@ as item() {
     "extent": $extent,
     "support": $support,
     "note": $physDescNote,
-    "creation": (),
-    "hands" :[$hands]
+    "creation": $creation,
+    "hands": $hands,
+    "contents": $contents,
+    "additions": $additions
   }
+};
+
+declare function local:create-msItem-map($item as node(), $contentLang as xs:string)
+as item() {
+  let $itemId := $ms-id||"#"||$item/@xml:id/string()
+  let $locus := local:create-array-of-locus-maps($item/locus)
+  
+  (: TODO :)
+  let $authors := array {
+    for $auth in $item/author
+    return map {
+      "@id": $auth/@ref/string(),
+      (: TODO: role map to uri, maybe syriaca authors-editors roles? :)
+      "role": "author",
+      "name": $auth//text() => string-join(" ") => normalize-space()
+    }
+  }
+  let $editors := array {
+    for $ed in $item/editor
+    return map {
+      "@id": $ed/@ref/string(),
+      (: TODO: role map to uri, maybe syriaca authors-editors roles? :)
+      "role": $ed/@role/string(),
+      "name": $ed//text() => string-join(" ") => normalize-space()
+    }
+  }
+  
+  let $workRef := $item/title/@ref/string()
+  let $title := $item/title//text() => string-join(" ") => normalize-space()
+  
+  let $excerpts := array {
+    for $ex in $item/*[functx:is-value-in-sequence(name(), ("rubric", "incipit", "quote", "explicit", "finalRubric"))]
+    return map {
+      "locus": local:create-array-of-locus-maps($ex/locus),
+      "type": $ex/name(),
+      "transcription": $ex/text() => string-join(" ") => normalize-space() (: TODO: this data is messy since some sub-elements may have content that should be included, but some, such as note, might not. For now simply taking the immediate child text and joining together. :)
+    }
+  }
+  
+  let $notes := array {
+    for $n in $item/note
+    (: TODO: handle multi-line paragraphs? :)
+    return $n//text() => string-join(" ") => normalize-space()
+  }
+  
+  return map {
+    "@id": $itemId,
+    "language": $contentLang,
+    "locus": $locus,
+    "creator": array:join(($authors, $editors)),
+    "embodies": $workRef,
+    "title": $title,
+    "excerpts": $excerpts,
+    "notes": $notes,
+    "contents": array {
+      for $sub in $item/msItem
+      return local:create-msItem-map($sub, $contentLang)
+    }
+  }
+};
+
+declare function local:create-addition-map($addition as node())
+as item() {
+  (: TODO: colophon and doxology possible sub-types from tei:label :)
+  let $addId := $ms-id||"#"||$addition/@xml:id
+  let $locus := local:create-array-of-locus-maps($addition/locus)
+  (: TODO: item/p could also be an excerpt of the quote type if it contains a tei:quote, but there is some mess here... For now just dumping into a string...:)
+  let $notes := array {
+    for $n in $addition/p
+    return $n//text() => string-join(" ") => normalize-space()
+  }
+  return map {
+    "@id": $addId,
+    "locus": $locus,
+    "notes": $notes
+  }
+};
+
+declare function local:create-array-of-locus-maps($locusElements as node()*)
+as item()?
+{
+  (: if no locus element was passed, return an empty array; otherwise process each locus into a map :)
+  if(not($locusElements)) then
+    array {}
+  else
+    array {
+      for $loc in $locusElements
+      let $from := $loc/@from/string()
+      let $to := $loc/@to/string()
+      let $label := $loc//text() => string-join(" ") => normalize-space()
+      return map {
+        "from": $from,
+        "to": $to,
+        "label": $label
+      }
+    } 
 };
 
 (: ################### :)
@@ -124,6 +252,16 @@ let $parts :=
 (: Provenance Info :)
 
 (: TODO: add to this section :)
+(:
+- derivedFrom (use pubStmt/idno)
+- creator (use creator editor idnos)
+- partOf (needs a named graph for the collection, which will get its own collection-level metadata)
+- respStmts (see the example for how to grab this)
+- edition
+- pub date
+- in the prov-d field, maybe, you can also say that the TEI record itself is based on the print bibl and cite the bibl, pages, entry, and url of it
+  - trick here is it's part-level...
+:)
 
 
 (: create a map function that will be serialized as JSON :)
@@ -136,9 +274,9 @@ let $json :=
     "repository": $repository,
     "settlement": $settlement,
     "country": $country,
-    "form": [$forms],
-    "parts": [$parts]
+    "form": $forms,
+    "parts": $parts
   }
 
-return $json
-(: return json:serialize($json) :)
+(: return $json :)
+return json:serialize($json, map {"escape": "no"})
