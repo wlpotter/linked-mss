@@ -1,0 +1,12 @@
+rule all:
+    input: "results/10.json"
+
+rule transform_smbl_to_jsonld:
+    input:
+        "data/smbl/{record}.xml"
+    output:
+        "results/{record}.json"
+    log:
+        "logs/transform_smbl_to_jsonld.{record}.log"
+    shell:
+        "basex -bfile-path=../{input} scripts/smbl-tei-to-json.xq > {output} 2> {log}"
