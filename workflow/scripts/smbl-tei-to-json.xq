@@ -27,8 +27,9 @@ declare variable $cod-unit-type-uri := "https://wlpotter.github.io/ontologies/ma
 :  :)
 declare function local:create-part-map($part as node(), $partId as xs:string)
 as item() {
-  let $type := $part/head/listRelation[@type="Wright-BL-Taxonomy"]/relation[@ref="http://purl.org/dc/terms/type"]/@passive/string()
-  
+  let $type := array {
+    $part/head/listRelation[@type="Wright-BL-Taxonomy"]/relation[@ref="http://purl.org/dc/terms/type"]/@passive/string()
+}
   let $label := $part/msIdentifier/altIdentifier/idno[@type="BL-Shelfmark-display"]/text()
   let $idnos := local:create-idnos-map($part/msIdentifier, ("BL-Shelfmark", "Wright-BL-Roman"))
 
@@ -43,7 +44,7 @@ as item() {
   }
   
   let $support := $part/physDesc/objectDesc/supportDesc/@material/string()
-  let $support := $smblmap:supports($support)
+  let $support := if($support) then $smblmap:supports($support) else $support
   
   let $physDescNote := $part/physDesc/p//text() => string-join(" ") => normalize-space()
   
@@ -86,8 +87,8 @@ as item() {
     let $scope := $hand/@scope/string()
     let $writingInfo := $hand/@script/string()
     (: lookup the writing info in the script and language mapping tables :)
-    let $language := $smblmap:languages($writingInfo)
-    let $script := $smblmap:scripts($writingInfo)
+    let $language := if($writingInfo) then $smblmap:languages($writingInfo) else $writingInfo
+    let $script := if($writingInfo) then $smblmap:scripts($writingInfo) else $writingInfo
     let $note := $hand//text() => string-join(" ") => normalize-space()
     return map {
       "@id": $handId,
@@ -98,7 +99,8 @@ as item() {
     }
 }
 
-  let $contentLang := $part/msContents/textLang/@mainLang/string() => $smblmap:languages()
+  let $contentLang := $part/msContents/textLang/@mainLang/string()
+  let $contentLang := if($contentLang) then $smblmap:languages($contentLang) else $contentLang
   
   let $contents := array {
     for $item at $i in $part/msContents/msItem
@@ -125,7 +127,7 @@ as item() {
   }
 };
 
-declare function local:create-msItem-map($item as node(), $contentLang as xs:string, $prevSibIndex as xs:integer, $nextSibIndex as xs:integer)
+declare function local:create-msItem-map($item as node(), $contentLang as xs:string?, $prevSibIndex as xs:integer, $nextSibIndex as xs:integer)
 as item() {
   let $itemId := $ms-id||"#"||$item/@xml:id/string()
   (: get the URIs for the preceding and following sibling items, if they exist :)
@@ -151,7 +153,7 @@ as item() {
     }
   }
   
-  let $workRef := $item/title/@ref/string()
+  let $workRef := array {distinct-values($item/title/@ref/string())}
   let $title := $item/title//text() => string-join(" ") => normalize-space()
   
   let $excerpts := array {
@@ -241,11 +243,15 @@ as item()
 declare function local:create-collection-map($msIdentifier as node())
 as item()
 {
-  let $collection := $smblmap:collections($msIdentifier/collection/text())
-  let $repository := $smblmap:repositories($msIdentifier/repository/text())
-  let $holdingInstitution := $smblmap:holding-institutions($msIdentifier/repository/text())
-  let $settlement := $smblmap:places($msIdentifier/settlement/text())
-  let $country := $smblmap:places($msIdentifier/country/text())
+  let $collection := $msIdentifier/collection/text()
+  let $collection := if($collection) then $smblmap:collections($collection) else $collection
+  let $repository := $msIdentifier/repository/text()
+  let $repository := if($repository) then $smblmap:repositories($repository) else $repository
+  let $holdingInstitution := if($repository) then $smblmap:holding-institutions($repository) else $repository
+  let $settlement := $msIdentifier/settlement/text()
+  let $settlement := if($settlement) then $smblmap:places($settlement) else $settlement
+  let $country := $msIdentifier/country/text()
+  let $country := if($country) then $smblmap:places($country) else $country
   return map {
     "@id": $collection,
     "holdingInstitution": $holdingInstitution,
