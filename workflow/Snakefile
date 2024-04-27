@@ -1,7 +1,17 @@
 SMBL_FILE_IDs, = glob_wildcards("data/smbl/{id}.xml")
 
 rule all:
-    input: expand("results/smbl/{id}.json", id=SMBL_FILE_IDs)
+    input: "results/smbl.json"
+
+rule concat_smbl_jsonld:
+    input: 
+        "data/smbl-graph-template.json",
+        "data/ontology/manuscripts.jsonld",
+        expand("results/smbl/{id}.json", id=SMBL_FILE_IDs)
+    output: "results/smbl.json"
+    script:
+        "scripts/concat_smbl_jsonld.py"
+
 
 rule transform_smbl_to_jsonld:
     input:
