@@ -17,7 +17,7 @@ rule transform_smbl_to_jsonld:
     input:
         "data/smbl/{record}.xml"
     output:
-        "results/smbl/{record}.json"
+        temp("results/smbl/{record}.json")
     log:
         "logs/transform_smbl_to_jsonld.{record}.log"
     shell:
