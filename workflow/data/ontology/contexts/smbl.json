@@ -1,0 +1,105 @@
+{
+    "@id": "https://wlpotter.github.io/linkedmss/smbl/context",
+    "name": ["Syriac Manuscripts in the British Library JSON-LD Context"],
+    "createdBy": {"@id": "https://orcid.org/0000-0003-1009-9545"},
+    "license": {"@id": "https://creativecommons.org/licenses/by/4.0/"},
+    "@context": {
+        "dcterms": "http://purl.org/dc/terms/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "label": "rdfs:label",
+        "idno": {
+            "@id": "https://schema.org/identifier",
+            "@context": {
+                "name": "https://schema.org/name",
+                "value": "https://schema.org/value"
+            }
+        },
+        "collection": "http://erlangen-crm.org/current/P46i_forms_part_of",
+        "holdingInstitution": "https://wlpotter.github.io/ontologies/manuscripts#holding_institution",
+        "repository": "https://wlpotter.github.io/ontologies/manuscripts#collection_location",
+        "settlement": "http://erlangen-crm.org/current/P89_falls_within",
+        "country": "http://erlangen-crm.org/current/P89_falls_within",
+        "form": "https://wlpotter.github.io/ontologies/manuscripts#has_form",
+        "parts": {
+            "@id": "https://wlpotter.github.io/ontologies/manuscripts#has_codicological_unit",
+            "@container": "@list"
+        },
+        "extent": "https://wlpotter.github.io/ontologies/manuscripts#has_extent",
+        "unit": "http://erlangen-crm.org/current/P91_has_unit",
+        "quantity": "https://wlpotter.github.io/ontologies/manuscripts#extent_quantity",
+        "support": "https://wlpotter.github.io/ontologies/manuscripts#has_support",
+        "note": "http://erlangen-crm.org/current/P3_has_note",
+        "creation": "http://erlangen-crm.org/current/P108i_was_produced_by",
+        "origPlace": "http://erlangen-crm.org/current/P7_took_place_at",
+        "origDate": "http://erlangen-crm.org/current/P4_has_time-span",
+        "start": "http://erlangen-crm.org/current/P82a_begin_of_the_begin",
+        "end": "http://erlangen-crm.org/current/P82b_end_of_the_end",
+        "calendar": "https://wlpotter.github.io/ontologies/manuscripts#has_dating_method",
+        "datingMethod": "https://wlpotter.github.io/ontologies/manuscripts#has_dating_method",
+        "hands": {
+            "@id": "http://erlangen-crm.org/current/P31i_was_modified_by",
+            "@context": {
+                "language": "https://wlpotter.github.io/ontologies/manuscripts#employs_language",
+                "script": "https://wlpotter.github.io/ontologies/manuscripts#employs_script",
+                "scope": "https://wlpotter.github.io/ontologies/manuscripts#hand_scope"
+            }
+        },
+        "contents": {
+            "@id": "https://wlpotter.github.io/ontologies/manuscripts#has_content_item",
+            "@container": "@list",
+            "@context": {
+                "language": "http://erlangen-crm.org/current/P72_has_language",
+                "title": "https://wlpotter.github.io/ontologies/manuscripts#attests_title"
+            }
+        },
+        "locus": {
+            "@id": "https://wlpotter.github.io/ontologies/manuscripts#located_on",
+            "@context": {
+                "from": "https://wlpotter.github.io/ontologies/manuscripts#locus_from",
+                "to": "https://wlpotter.github.io/ontologies/manuscripts#locus_to"
+            }
+        },
+        "embodies": "http://erlangen-crm.org/current/P128_carries",
+        "creator": {
+            "@id": "https://wlpotter.github.io/ontologies/manuscripts#attributes",
+            "@context": {
+                "name": "https://wlpotter.github.io/ontologies/manuscripts#attests_name",
+                "ref": "https://wlpotter.github.io/ontologies/manuscripts#attributes_to_as_creator",
+                "role": "@type"
+            }
+        },
+        "excerpt": {
+            "@id": "https://wlpotter.github.io/ontologies/manuscripts#has_excerpt",
+            "@context": {
+                "type": "@type"
+            }
+        },
+        "rubric": "https://wlpotter.github.io/ontologies/manuscripts#has_rubric",
+        "incipit": "https://wlpotter.github.io/ontologies/manuscripts#has_incipit",
+        "quote": "https://wlpotter.github.io/ontologies/manuscripts#has_quote",
+        "explicit": "https://wlpotter.github.io/ontologies/manuscripts#has_explicit",
+        "finalRubric": "https://wlpotter.github.io/ontologies/manuscripts#has_final_rubric",
+        "transcription": "https://wlpotter.github.io/ontologies/manuscripts#transcription",
+        "child_contents": "https://wlpotter.github.io/ontologies/manuscripts#child_content_item",
+        "prev_item": "https://wlpotter.github.io/ontologies/manuscripts#previous_content_item",
+        "next_item": "https://wlpotter.github.io/ontologies/manuscripts#following_content_item",
+        "derivedFrom": {
+            "@id": "https://schema.org/isBasedOn",
+            "@context": {
+                "creator": "https://schema.org/creator",
+                "respStmts": "@nest",
+                "agent": "https://schema.org/contributor",
+                "resp": "rdfs:comment",
+                "edition": {
+                    "@id": "https://schema.org/version",
+                    "@type": "xsd:decimal"
+                },
+                "pubDate": {
+                    "@id": "https://schema.org/datePublished",
+                    "@value": "xsd:dateTime"
+                }
+            }
+        }
+    }
+}
