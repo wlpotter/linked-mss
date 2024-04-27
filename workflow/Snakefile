@@ -1,11 +1,13 @@
+SMBL_FILE_IDs, = glob_wildcards("data/smbl/{id}.xml")
+
 rule all:
-    input: "results/10.json"
+    input: expand("results/smbl/{id}.json", id=SMBL_FILE_IDs)
 
 rule transform_smbl_to_jsonld:
     input:
         "data/smbl/{record}.xml"
     output:
-        "results/{record}.json"
+        "results/smbl/{record}.json"
     log:
         "logs/transform_smbl_to_jsonld.{record}.log"
     shell:
