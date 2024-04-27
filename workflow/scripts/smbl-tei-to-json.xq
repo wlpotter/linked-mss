@@ -2,7 +2,7 @@ xquery version "3.1";
 
 declare default element namespace "http://www.tei-c.org/ns/1.0";
 
-import module namespace functx="http://www.functx.com" at "http://www.xqueryfunctions.com/xq/functx-1.0.1-nodoc.xq";
+import module namespace functx="http://www.functx.com" at "functx.xqm";
 import module namespace smblmap="http://wlpotter.github.io/ns/smblmap" at "smbl-mappings.xqm";
 
 
