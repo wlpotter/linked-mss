@@ -13,6 +13,18 @@ xquery version "3.1";
 module namespace smblmap="http://wlpotter.github.io/ns/smblmap";
 
 (:
+: Found in `/TEI/teiHeader/fileDesc/sourceDesc/msDesc//msIdentifier/altIdentifier/idno/@type`
+: Range of https://schema.org/name
+:)
+declare variable $smblmap:idno-types :=
+  map {
+    "BL-Shelfmark": "shelfmark",
+    "BL-Shelfmark-display": "shelfmark",
+    "BL-Shelmark-simplified": "label",
+    "Wright-BL-Arabic": "wrightEntry",
+    "Wright-BL-Roman": "wrightEntry"
+  };
+(:
 : Found in `/TEI/teiHeader/fileDesc/sourceDesc/msDesc//msIdentifier/collection`
 : Range of http://erlangen-crm.org/current/P46i_forms_part_of
 :)
@@ -72,10 +84,10 @@ Range of https://wlpotter.github.io/ontologies/manuscripts#has_support
 declare variable $smblmap:supports :=
   map {
     "chart": "https://wlpotter.github.io/ontologies/manuscripts#Chart",
-    "mixed": (
+    "mixed": array {(
       "https://wlpotter.github.io/ontologies/manuscripts#Chart",
       "https://wlpotter.github.io/ontologies/manuscripts#Perg"
-    ),
+    )},
     "paper": "https://wlpotter.github.io/ontologies/manuscripts#Chart",
     "perg": "https://wlpotter.github.io/ontologies/manuscripts#Perg",
     "unknown": ()
@@ -154,4 +166,28 @@ declare variable $smblmap:dating-methods :=
     "Hijri-qamari": "https://wlpotter.github.io/ontologies/manuscripts#Hijri-Qamari",
     "Seleucid": "https://wlpotter.github.io/ontologies/manuscripts#Seleucid",
     "#Seleucid": "https://wlpotter.github.io/ontologies/manuscripts#Seleucid"
+  };
+
+(:
+: Found based on node name of author and editor, or overridden by editor/@role value
+: Used for the JSON-LD @type keyword for attributes ranges
+:)
+declare variable $smblmap:creator-roles :=
+  map {
+    "author": "https://wlpotter.github.io/ontologies/manuscripts#AuthorAttribution",
+    "editor": "https://wlpotter.github.io/ontologies/manuscripts#EditorAttribution",
+    "translator": "https://wlpotter.github.io/ontologies/manuscripts#TranslatorAttribution"
+  };
+
+(:
+: Found based on node name of rubric, incipit, quote, explicit, finalRubric
+: USed for JSON-LD @type keyword for has_excerpt ranges
+:)
+declare variable $smblmap:excerpt-types :=
+  map {
+    "explicit": "https://wlpotter.github.io/ontologies/manuscripts#Explicit",
+    "finalRubric": "https://wlpotter.github.io/ontologies/manuscripts#FinalRubric",
+    "incipit": "https://wlpotter.github.io/ontologies/manuscripts#Incipit",
+    "rubric": "https://wlpotter.github.io/ontologies/manuscripts#Rubric",
+    "quote": "https://wlpotter.github.io/ontologies/manuscripts#Quote"
   };

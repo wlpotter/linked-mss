@@ -14,6 +14,11 @@ declare variable $in-file := doc($file-path);
 (: Global variable for the manuscript-object-level URI :)
 declare variable $ms-id := $in-file//msDesc/msIdentifier/idno[@type="URI"]/text();
 
+(: Global variables for the URIs used in the @type JSON-LD keys :)
+declare variable $ms-obj-type-uri := "https://wlpotter.github.io/ontologies/manuscripts#ManuscriptObject";
+
+declare variable $cod-unit-type-uri := "https://wlpotter.github.io/ontologies/manuscripts#CodicologicalUnit";
+
 (:~
 : Taks a tei:msPart, or tei:msDesc that does not have an msPart
 : Takes a string giving the part identifier, should be a URI
@@ -24,14 +29,18 @@ declare function local:create-part-map($part as node(), $partId as xs:string)
 as item() {
   let $type := $part/head/listRelation[@type="Wright-BL-Taxonomy"]/relation[@ref="http://purl.org/dc/terms/type"]/@passive/string()
   
+  let $label := $part/msIdentifier/altIdentifier/idno[@type="BL-Shelfmark-display"]/text()
+  let $idnos := local:create-idnos-map($part/msIdentifier, ("BL-Shelfmark", "Wright-BL-Roman"))
+
   let $extent := $part/physDesc/objectDesc/supportDesc/extent/measure[@type="composition"]
   let $extent := map {
-    "type": $extent/@unit/string(),
+    "type": $smblmap:extent-units($extent/@unit/string()),
     "label": $extent/text(),
     "quantity": $extent/@quantity/string()
   }
   
   let $support := $part/physDesc/objectDesc/supportDesc/@material/string()
+  let $support := $smblmap:supports($support)
   
   let $physDescNote := $part/physDesc/p//text() => string-join(" ") => normalize-space()
   
@@ -41,6 +50,8 @@ as item() {
     array {
       for $date in $origin/origDate
       let $calendar := $date/@*[name() = "calendar" or name() = "datingMethod"]/string()
+      let $calendar := if($calendar) then $smblmap:dating-methods($calendar) else $calendar
+      
       (: handle the inconsistency of how data is encoded here, e.g. notBefore, notBefore-custom, from, when, when-custom :)
       (: when and when-custom included as notBefore, i.e. the start date, with no trailing date :)
       let $start := $date/@*[contains(name(), "notBefore") or name() = "from" or contains(name(), "when")]/string()
@@ -61,7 +72,7 @@ as item() {
   
   let $creation :=
     map {
-      "origDate": ($origDate),
+      "origDate": $origDate,
       "origPlace": $origPlace
     }
   
@@ -71,10 +82,9 @@ as item() {
     let $handId := $ms-id||"#"||$hand/@xml:id/string()
     let $scope := $hand/@scope/string()
     let $writingInfo := $hand/@script/string()
-    (: note: substring-before and substring-after should use the first occurence of a delimiter, important for cases like 'syr-x-syrm' for Melkite Syriac :)
-    (: TODO: map language and script to URIs :)
-    let $language := substring-before($writingInfo, "-")
-    let $script := substring-after($writingInfo, "-")
+    (: lookup the writing info in the script and language mapping tables :)
+    let $language := $smblmap:languages($writingInfo)
+    let $script := $smblmap:scripts($writingInfo)
     let $note := $hand//text() => string-join(" ") => normalize-space()
     return map {
       "@id": $handId,
@@ -85,17 +95,12 @@ as item() {
     }
 }
 
-  let $contentLang := $part/msContents/textLang/@mainLang/string() => functx:substring-before-if-contains("-")
+  let $contentLang := $part/msContents/textLang/@mainLang/string() => $smblmap:languages()
   
   let $contents := array {
-    for $item in $part/msContents/msItem
-    return local:create-msItem-map($item, $contentLang)
+    for $item at $i in $part/msContents/msItem
+    return local:create-msItem-map($item, $contentLang, $i - 1, $i + 1)
   }
-  
-  (:
-  TODO: Additions
-  - call a sub-function to handle this
-  :)
   let $additions := array {
     for $add in $part/physDesc/additions/list/item
     return local:create-addition-map($add)
@@ -104,6 +109,8 @@ as item() {
   (: Return a map of the part and its sub-objects :)
   return map {
     "@id": $partId,
+    "label": $label,
+    "idno": $idnos,
     "dcterms:type": $type,
     "extent": $extent,
     "support": $support,
@@ -115,27 +122,28 @@ as item() {
   }
 };
 
-declare function local:create-msItem-map($item as node(), $contentLang as xs:string)
+declare function local:create-msItem-map($item as node(), $contentLang as xs:string, $prevSibIndex as xs:integer, $nextSibIndex as xs:integer)
 as item() {
   let $itemId := $ms-id||"#"||$item/@xml:id/string()
+  (: get the URIs for the preceding and following sibling items, if they exist :)
+  let $prevSiblingUri := if($prevSibIndex > 0) then $ms-id||"#"||$item/../msItem[$prevSibIndex]/@xml:id/string() else ()
+  let $nextSiblingUri := if($nextSibIndex <= count($item/../msItem)) then $ms-id||"#"||$item/../msItem[$nextSibIndex]/@xml:id/string() else ()
+  
   let $locus := local:create-array-of-locus-maps($item/locus)
   
-  (: TODO :)
   let $authors := array {
     for $auth in $item/author
     return map {
-      "@id": $auth/@ref/string(),
-      (: TODO: role map to uri, maybe syriaca authors-editors roles? :)
-      "role": "author",
+      "ref": $auth/@ref/string(),
+      "role": $smblmap:creator-roles("author"),
       "name": $auth//text() => string-join(" ") => normalize-space()
     }
   }
   let $editors := array {
     for $ed in $item/editor
     return map {
-      "@id": $ed/@ref/string(),
-      (: TODO: role map to uri, maybe syriaca authors-editors roles? :)
-      "role": $ed/@role/string(),
+      "ref": $ed/@ref/string(),
+      "role": if($ed/@role/string() !="") then $smblmap:creator-roles($ed/@role/string()) else $smblmap:creator-roles("editor"),
       "name": $ed//text() => string-join(" ") => normalize-space()
     }
   }
@@ -147,7 +155,7 @@ as item() {
     for $ex in $item/*[functx:is-value-in-sequence(name(), ("rubric", "incipit", "quote", "explicit", "finalRubric"))]
     return map {
       "locus": local:create-array-of-locus-maps($ex/locus),
-      "type": $ex/name(),
+      "type": $smblmap:excerpt-types($ex/name()),
       "transcription": $ex/text() => string-join(" ") => normalize-space() (: TODO: this data is messy since some sub-elements may have content that should be included, but some, such as note, might not. For now simply taking the immediate child text and joining together. :)
     }
   }
@@ -167,9 +175,11 @@ as item() {
     "title": $title,
     "excerpts": $excerpts,
     "notes": $notes,
-    "contents": array {
-      for $sub in $item/msItem
-      return local:create-msItem-map($sub, $contentLang)
+    "prev_item": $prevSiblingUri,
+    "next_item": $nextSiblingUri,
+    "child_contents": array {
+      for $sub at $i in $item/msItem
+      return local:create-msItem-map($sub, $contentLang, $i - 1, $i + 1)
     }
   }
 };
@@ -211,6 +221,41 @@ as item()?
     } 
 };
 
+declare function local:create-idnos-map($msIdentifier as node(), $idnoTypes as xs:string*)
+as item()
+{
+  let $idnoMaps :=
+    for $idno in $msIdentifier//idno
+    (: look only at idnos that are included in the $idnoTypes sequence :)
+    where functx:is-value-in-sequence($idno/@type/string(), $idnoTypes)
+    return map {
+      "name": $smblmap:idno-types($idno/@type/string()),
+      "value": $idno/text()
+    }
+    return array {$idnoMaps}
+};
+
+declare function local:create-collection-map($msIdentifier as node())
+as item()
+{
+  let $collection := $smblmap:collections($msIdentifier/collection/text())
+  let $repository := $smblmap:repositories($msIdentifier/repository/text())
+  let $holdingInstitution := $smblmap:holding-institutions($msIdentifier/repository/text())
+  let $settlement := $smblmap:places($msIdentifier/settlement/text())
+  let $country := $smblmap:places($msIdentifier/country/text())
+  return map {
+    "@id": $collection,
+    "holdingInstitution": $holdingInstitution,
+    "repository": map {
+      "@id": $repository,
+      "settlement": map {
+        "@id": $settlement,
+        "country": $country
+      }
+    }
+  }
+};
+
 (: ################### :)
 
 (: MS Object Level :)
@@ -218,18 +263,15 @@ as item()?
 
 (: get the URI for the manuscript :)
 let $msIdentifier := $in-file//msDesc/msIdentifier
-let $shelfmark := $msIdentifier/altIdentifier/idno[@type="BL-Shelfmark"]/text()
-(: TODO: entry is at part level as well :)
-let $wrightEntry := $msIdentifier/altIdentifier/idno[@type="Wright-BL-Roman"]/text()
+(: use the display shelfmark as an rdfs:label :)
+let $label := $msIdentifier/altIdentifier/idno[@type="BL-Shelfmark-display"]/text()
 
-(: Collection, repository, settlement, and country should all become mapped to individuals via a URI :)
-let $collection := $msIdentifier/collection/text()
-let $repository := $msIdentifier/repository/text()
-let $settlement := $msIdentifier/settlement/text()
-let $country := $msIdentifier/country/text()
+let $idnos := local:create-idnos-map($msIdentifier, ("BL-Shelfmark", "Wright-BL-Roman"))
+
+(: Collection, repository, settlement, and country are all mapped to individuals via a URI :)
+let $collectionInfo := local:create-collection-map($msIdentifier)
 
 (: form value either in the main msDesc or an msPart, in the latter case get all distinct values :)
-(: note: should become individuals in the ontology :)
 let $forms :=
   if(not($in-file//msDesc/msPart)) then
     $in-file//msDesc/physDesc/objectDesc/@form/string()
@@ -237,6 +279,13 @@ let $forms :=
     for $part in $in-file//msDesc/msPart
     return $part/physDesc/objectDesc/@form/string()
 let $forms := distinct-values($forms)
+
+(: map each distinct form value to a URI in the ontology, and store these as an array :)
+let $forms := 
+  array {
+    for $f in $forms
+    return $smblmap:forms($f)
+  }
 
 (: ################### :)
 (: Parts :)
@@ -247,37 +296,59 @@ let $parts :=
     local:create-part-map($in-file//msDesc, $ms-id||"#Part1")
   else
     for $part in $in-file//msDesc/msPart
-    (: create a part map for each of the parts :)
+    (: create a part map for each of the parts, using its part-specific URI :)
     return local:create-part-map($part, $part/msIdentifier/idno[@type="URI"]/text())
   
 (: ################### :)
 (: Provenance Info :)
 
-(: TODO: add to this section :)
+let $teiDocUri := $in-file//publicationStmt/idno[@type="URI"]/text()
+let $creators := array {
+  for $creator in $in-file//titleStmt/editor[@role="creator"]
+  return $creator/@ref/string()
+}
 (:
-- derivedFrom (use pubStmt/idno)
-- creator (use creator editor idnos)
-- partOf (needs a named graph for the collection, which will get its own collection-level metadata)
-- respStmts (see the example for how to grab this)
-- edition
-- pub date
-- in the prov-d field, maybe, you can also say that the TEI record itself is based on the print bibl and cite the bibl, pages, entry, and url of it
-  - trick here is it's part-level...
+TODO: partOf association for the named graph or collection-level info??
+- need collection-level for the SMBL collection as a whole
+- need dataset-level for the JSON-LD, maybe several -- one for each project-source and one for the full knowledge graph?
 :)
+let $resps :=
+  array {
+    for $resp in $in-file//titleStmt/respStmt
+    let $respNames := 
+      for $name in $resp/name
+      return string-join($name//text(), " ") => normalize-space()
+    let $respString := $resp/resp/text()||" "||string-join($respNames, ", ")
+    return map {
+      "agent": $resp/name/@ref/string(),
+      "resp": $respString
+    }
+  }
+let $edition := $in-file//editionStmt/edition/@n/string()
+let $pubDate := $in-file//publicationStmt/date/text()
 
+let $provenance := 
+  map {
+    "@id": $teiDocUri,
+    "creator": $creators,
+    "respStmts": $resps,
+    "edition": $edition,
+    "pubdate": $pubDate
+  }
+  
+(: TODO: add to this section a reference, using https://schema.org/citation to the print catalogue of Wright? The trick is there may be multiple due to the part-level nature... :)
 
 (: create a map function that will be serialized as JSON :)
 let $json := 
   map {
     "@id": $ms-id,
-    "shelfmark": $shelfmark,
-    "wrightEntry": $wrightEntry,
-    "collection": $collection,
-    "repository": $repository,
-    "settlement": $settlement,
-    "country": $country,
+    "@type": $ms-obj-type-uri,
+    "label": $label,
+    "idno": $idnos,
+    "collection": $collectionInfo,
     "form": $forms,
-    "parts": $parts
+    "parts": $parts,
+    "derivedFrom": $provenance
   }
 
 (: return $json :)
