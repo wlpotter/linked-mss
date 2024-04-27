@@ -363,4 +363,4 @@ let $json :=
   }
 
 (: return $json :)
-return json:serialize($json, map {"escape": "no"})
+return json:serialize($json, map {"escape": "yes", "format": "xquery"})
