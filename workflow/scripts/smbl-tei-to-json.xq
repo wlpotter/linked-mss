@@ -33,8 +33,11 @@ as item() {
   let $idnos := local:create-idnos-map($part/msIdentifier, ("BL-Shelfmark", "Wright-BL-Roman"))
 
   let $extent := $part/physDesc/objectDesc/supportDesc/extent/measure[@type="composition"]
+  let $extentType := $extent/@unit/string()
+  let $extentType := if($extentType) then $smblmap:extent-units($extentType) else ()
+
   let $extent := map {
-    "type": $smblmap:extent-units($extent/@unit/string()),
+    "type": $extentType,
     "label": $extent/text(),
     "quantity": $extent/@quantity/string()
   }
@@ -293,12 +296,14 @@ let $forms :=
 let $parts := 
   if(not($in-file//msDesc/msPart)) then
     (: create the part using the msDesc as the context node. Construct the id for the part :)
-    local:create-part-map($in-file//msDesc, $ms-id||"#Part1")
+    array {local:create-part-map($in-file//msDesc, $ms-id||"#Part1")}
   else
-    for $part in $in-file//msDesc/msPart
+    array {
+      for $part in $in-file//msDesc/msPart
     (: create a part map for each of the parts, using its part-specific URI :)
     return local:create-part-map($part, $part/msIdentifier/idno[@type="URI"]/text())
-  
+    }
+    
 (: ################### :)
 (: Provenance Info :)
 
@@ -320,7 +325,7 @@ let $resps :=
       return string-join($name//text(), " ") => normalize-space()
     let $respString := $resp/resp/text()||" "||string-join($respNames, ", ")
     return map {
-      "agent": $resp/name/@ref/string(),
+      "agent": array{$resp/name/@ref/string()},
       "resp": $respString
     }
   }
