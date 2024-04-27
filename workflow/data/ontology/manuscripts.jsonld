@@ -1,0 +1,586 @@
+[ {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://www.w3.org/2002/07/owl#imports" : [ {
+    "@id" : "http://erlangen-crm.org/current/"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Addition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#AnnoMundi",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#DatingMethod" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Arabic_Garshuni_script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#AuthorAttribution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#CreatorAttribution"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#British_Library_Additional_Collection",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://erlangen-crm.org/current/E78_Curated_Holding" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Additional"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#British_Library_Oriental_Collection",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://erlangen-crm.org/current/E78_Curated_Holding" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Oriental Collection"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Chart",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Support" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Paper"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Christian_Palestinian_Aramaic_script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Codex",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Form" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#CodicologicalUnit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/E24_Physical_Human-Made_Thing"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Possibly equivalent to frbroo:F4_Manifestation_Singleton"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/E24_Physical_Human-Made_Thing"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#CreatorAttribution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#DatingMethod",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/E55_Type"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#East_Syriac_Script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#EditorAttribution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#CreatorAttribution"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Egerton_Collection",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://erlangen-crm.org/current/E78_Curated_Holding" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Egerton"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Estrangela",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Excerpt",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Explicit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Excerpt"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Extent",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/E54_Dimension"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#FinalRubric",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Excerpt"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Folio",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://erlangen-crm.org/current/E58_Measurement_Unit" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Form",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/E55_Type"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Gregorian",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#DatingMethod" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Hand",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/E11_Modification"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Hijri-Qamari",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#DatingMethod" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Incipit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Excerpt"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Leaf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Form" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Locus",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ManuscriptObject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/E24_Physical_Human-Made_Thing"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Melkite_Syriac_script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Mixed_Support",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Support" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Organization_British_Library",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://erlangen-crm.org/current/E74_Group" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "This is the British Library as an organization, i.e. the corporate entity responsible for the custodianship of the manuscript and other collections"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "British Library"
+  } ],
+  "http://www.w3.org/2002/07/owl#differentFrom" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Repository_British_Library"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Perg",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Support" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Parchment"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Quote",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Excerpt"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Repository",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/E53_Place"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Repository_British_Library",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Repository" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "This is the repository of the British Library, wherein are held the manuscript and other collections."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "British Library"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Rubric",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Excerpt"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/E55_Type"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Seleucid",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#DatingMethod" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Sloane_Collection",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://erlangen-crm.org/current/E78_Curated_Holding" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Sloane"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Support",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/E57_Material"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#TranslatorAttribution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#CreatorAttribution"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Unspecified_Arabic_script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Unspecified_Armenian_script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Unspecified_Coptic_script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Unspecified_French_script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Unspecified_Greek_script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Unspecified_Hebrew_script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Unspecified_Latin_script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Unspecified_Syriac_Script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#West_Syriac_Script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://wlpotter.github.io/ontologies/manuscripts#Script" ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#attests_name",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#CreatorAttribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#attests_title",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#attributes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#CreatorAttribution"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#attributes_to_as_author",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#AuthorAttribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://erlangen-crm.org/current/E39_Actor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#attributes_to_as_creator"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#attributes_to_as_creator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "range = ecrm Person"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#CreatorAttribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://erlangen-crm.org/current/E39_Actor"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#attributes_to_as_editor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#EditorAttribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://erlangen-crm.org/current/E39_Actor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#attributes_to_as_creator"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#attributes_to_as_translator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#TranslatorAttribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://erlangen-crm.org/current/E39_Actor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#attributes_to_as_creator"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#child_content_item",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#related_content_item"
+  } ],
+  "http://www.w3.org/2002/07/owl#propertyDisjointWith" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#sibling_content_item"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#collection_location",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://erlangen-crm.org/current/E78_Curated_Holding"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Repository"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/P53_has_former_or_current_location"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#employs_language",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Hand"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://erlangen-crm.org/current/E56_Language"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#employs_script",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Hand"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Script"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#extent_quantity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Extent"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#int"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#following_content_item",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#sibling_content_item"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#previous_content_item"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#hand_scope",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Hand"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_codicological_unit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ManuscriptObject"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#CodicologicalUnit"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_content_item",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_dating_method",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://erlangen-crm.org/current/E52_Time-Span"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#DatingMethod"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_excerpt",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Excerpt"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_explicit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Explicit"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_excerpt"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_extent",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://erlangen-crm.org/current/E24_Physical_Human-Made_Thing"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Extent"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_final_rubric",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#FinalRubric"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_excerpt"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_form",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ManuscriptObject"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Form"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_incipit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Incipit"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_excerpt"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_quote",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Quote"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_excerpt"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_rubric",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Rubric"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_excerpt"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#has_support",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#CodicologicalUnit"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Support"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#holding_institution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "domain: ecrm:E78_Collection\nrange: ecrm:E40_LegalBody"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://erlangen-crm.org/current/E78_Curated_Holding"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://erlangen-crm.org/current/E74_Group"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://erlangen-crm.org/current/P51_has_former_or_current_owner"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#located_on",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Locus"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#locus_from",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Locus"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#locus_to",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Locus"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#previous_content_item",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#sibling_content_item"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#related_content_item",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#ContentItem"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#sibling_content_item",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#related_content_item"
+  } ]
+}, {
+  "@id" : "https://wlpotter.github.io/ontologies/manuscripts#transcription",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://wlpotter.github.io/ontologies/manuscripts#Excerpt"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+} ]
