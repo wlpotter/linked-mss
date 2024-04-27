@@ -3,10 +3,12 @@ xquery version "3.1";
 declare default element namespace "http://www.tei-c.org/ns/1.0";
 
 import module namespace functx="http://www.functx.com" at "http://www.xqueryfunctions.com/xq/functx-1.0.1-nodoc.xq";
+import module namespace smblmap="http://wlpotter.github.io/ns/smblmap" at "smbl-mappings.xqm";
+
 
 
 declare variable $file-path external;
-(: set as /home/arren/Documents/GitHub/britishLibrary-data/data/tei/103.xml :)
+(: for local testing, set as /home/arren/Documents/GitHub/britishLibrary-data/data/tei/103.xml :)
 declare variable $in-file := doc($file-path);
 
 (: Global variable for the manuscript-object-level URI :)
