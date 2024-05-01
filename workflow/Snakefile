@@ -1,0 +1,24 @@
+SMBL_FILE_IDs, = glob_wildcards("data/smbl/{id}.xml")
+
+rule all:
+    input: "results/smbl.json"
+
+rule concat_smbl_jsonld:
+    input: 
+        "data/smbl-graph-template.json",
+        "data/ontology/manuscripts.jsonld",
+        expand("results/smbl/{id}.json", id=SMBL_FILE_IDs)
+    output: "results/smbl.json"
+    script:
+        "scripts/concat_smbl_jsonld.py"
+
+
+rule transform_smbl_to_jsonld:
+    input:
+        "data/smbl/{record}.xml"
+    output:
+        temp("results/smbl/{record}.json")
+    log:
+        "logs/transform_smbl_to_jsonld.{record}.log"
+    shell:
+        "basex -bfile-path=../{input} scripts/smbl-tei-to-json.xq > {output} 2> {log}"

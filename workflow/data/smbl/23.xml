@@ -1,0 +1,554 @@
+<?oxygen RNGSchema="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="compact"?><?xml-stylesheet type="text/css" href="https://raw.githubusercontent.com/srophe/wright-catalogue/master/parameters/tei.css"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title level="a" xml:lang="en">London, BL, Add. 12148</title>
+        <title xml:lang="en" level="m">A Digital Catalogue of Syriac Manuscripts in the British Library</title>
+        <sponsor>Syriaca.org: The Syriac Reference Portal</sponsor>
+        <funder>The National Endowment for the Humanities</funder>
+        <funder>The Andrew W. Mellon Foundation</funder>
+        <principal>David A. Michelson</principal>
+        <editor role="general-editor" ref="https://bl.syriac.uk/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <editor role="creator" ref="https://bl.syriac.uk/documentation/editors.xml#wwright">William Wright</editor>
+        <editor role="creator" ref="https://bl.syriac.uk/documentation/editors.xml#dmichelson">David A. Michelson</editor>
+        <editor role="creator" ref="https://bl.syriac.uk/documentation/editors.xml#raydin">Robert Aydin</editor>
+        <editor role="creator" ref="https://bl.syriac.uk/documentation/editors.xml#rbrasoveanu">Roman Brasoveanu</editor>
+        <editor role="creator" ref="https://bl.syriac.uk/documentation/editors.xml#jarnwine">Justin Arnwine</editor>
+        <respStmt>
+          <resp>Created by</resp>
+          <name type="person" ref="https://bl.syriac.uk/documentation/editors.xml#rbrasoveanu">Roman Brasoveanu</name>
+        </respStmt>
+        <respStmt>
+            <resp>Based on the work of</resp>
+            <name type="person" ref="https://bl.syriac.uk/documentation/editors.xml#wwright">William Wright</name>
+        </respStmt>
+        <respStmt>
+            <resp>Edited by</resp>
+            <name type="person" ref="https://bl.syriac.uk/documentation/editors.xml#jarnwine">Justin Arnwine</name>
+        </respStmt>
+        <respStmt>
+            <resp>Syriac text entered by</resp>
+            <name type="person" ref="https://bl.syriac.uk/documentation/editors.xml#raydin">Robert Aydin</name>
+        </respStmt>
+        <respStmt>
+            <resp>Greek and coptic text entry and proofreading by</resp>
+            <name type="person" ref="https://bl.syriac.uk/documentation/editors.xml#rstitt">Ryan Stitt</name>
+        </respStmt>
+        <respStmt>
+            <resp>Project management by</resp>
+            <name type="person" ref="https://bl.syriac.uk/documentation/editors.xml#wpotter">William L. Potter</name>
+        </respStmt>
+        <respStmt>
+            <resp>English text entry and proofreading by</resp>
+            <name type="org" ref="https://bl.syriac.uk/documentation/editors.xml#uasyriacaresearchgroup">Syriac Research Group, University of Alabama</name>
+        </respStmt>
+      <respStmt>
+          <resp>Folio extent edited by</resp>
+          <name type="person" ref="https://bl.syriac.uk/documentation/editors.xml#kurban">Kurt Urban</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition n="1.0"/>
+    </editionStmt>
+      <publicationStmt>
+        <authority>Syriaca.org: The Syriac Reference Portal</authority>
+        <idno type="URI">https://bl.syriac.uk/ms/23/tei</idno>
+        <availability>
+            <p/>
+            <licence target="http://creativecommons.org/licenses/by/3.0/">
+                <p>Distributed under a Creative Commons Attribution 3.0 Unported License</p>
+            </licence>
+        </availability>
+        <date calendar="Gregorian">2023-04-21-05:00</date>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc xml:id="manuscript-23">
+          <msIdentifier>
+            <country>United Kingdom</country>
+            <settlement>London</settlement>
+            <repository>British Library</repository>
+            <collection>Oriental Manuscripts</collection>
+            <idno type="URI">https://bl.syriac.uk/ms/23</idno>
+            <altIdentifier>
+              <idno type="BL-Shelfmark">Add. 12,148</idno>
+            </altIdentifier>
+            <altIdentifier>
+              <idno type="BL-Shelfmark-display">London, BL, Add. 12,148</idno>
+            </altIdentifier>
+            <altIdentifier>
+              <idno type="BL-Shelmark-simplified">BL Add MS 12148</idno>
+            </altIdentifier>
+            <altIdentifier>
+              <collection>William Wright, Catalogue of the Syriac Manuscripts in the British Museum Acquired since the Year 1838</collection>
+              <idno type="Wright-BL-Arabic">321</idno>
+            </altIdentifier>
+            <altIdentifier>
+              <collection>William Wright, Catalogue of the Syriac Manuscripts in the British Museum Acquired since the Year 1838</collection>
+              <idno type="Wright-BL-Roman">CCCXXI</idno>
+            </altIdentifier>
+          </msIdentifier>
+          <head>
+            <note type="contents-note">This manuscript contains: The first part of a Choral Service-book for the circle of the whole year. In total, including sub-sections, this manuscript contains 20 items.</note>
+            <listRelation type="Wright-BL-Taxonomy">
+              <relation name="dcterms:type" ref="http://purl.org/dc/terms/type" active="https://bl.syriac.uk/ms/23" passive="#choral">
+                <desc>Choral Books</desc>
+              </relation>
+            </listRelation>
+          </head>
+          <msContents>
+            <summary/>
+            <textLang mainLang="syr"/>
+            <msItem xml:id="a1" n="1">
+              <locus from="1a"/>
+              <title xml:lang="en">The first part of a Choral Service-book for the circle of
+                the whole year</title>
+              <note>It comprises the same services as <bibl>Add. 12,146<ptr target="https://bl.syriac.uk/ms/21"/>
+                </bibl>,
+               except that the more modern portions (<bibl>Add. 12,146<ptr target="https://bl.syriac.uk/ms/21"/>, no. 1, d and e, and no. 20</bibl>) have not been added. Although, however,
+                the services are the same, yet the hymns, prayers, etc., which compose each service,
+                are often very different. Hence, in the <foreign xml:lang="syr">ܡܕܪ̈ܫܐ ܕܗܝܡܢܘܬܐ</foreign>, foll. <locus from="9b">9 b</locus> and <locus from="10a">10 a</locus>, we find
+                that <persName ref="http://syriaca.org/person/573">John (Chrysostom)</persName>, <persName ref="http://syriaca.org/person/430">Cyril</persName>,
+                <persName ref="http://syriaca.org/person/2432">Dioscorus</persName>, <persName ref="http://syriaca.org/person/13">Ephraim</persName>, <persName ref="http://syriaca.org/person/17">Isaac (of
+                  Antioch)</persName>, <persName ref="http://syriaca.org/person/42">Jacob (of Batnae)</persName> and
+                  <persName ref="http://syriaca.org/person/44">Philoxenus (of Mabūg)</persName> are blessed; whilst curses are
+                bestowed upon <persName ref="http://syriaca.org/person/3">Bardaisān</persName>, <persName ref="http://syriaca.org/person/616">Marcion</persName>,
+                  <persName ref="http://syriaca.org/person/952">
+                  <choice>
+                    <reg>Audius</reg>
+                    <orig>ܥܘܕܝ</orig>
+                  </choice>
+                </persName>,
+                <persName ref="http://syriaca.org/person/608">Manī</persName> and <persName ref="http://syriaca.org/person/2486">Arius</persName>.</note>
+              <finalRubric xml:lang="syr">ܫܠܡ̣ܬ݁ ܦܠܓܘܬܐ ܩܕܡܝܬܐ
+                    ܕܟܪܘܟܝܐ. ܒܟܠܗ̈ܝܢ ܕܝܠܗ̇<locus from="233b"/>
+              </finalRubric>
+              <colophon>See additions.</colophon>
+              <msItem xml:id="b1" n="2">
+                <locus from="1a"/>
+                <title xml:lang="en">Order of the Dedication of the Church</title>
+                <note>Misplaced</note>
+              </msItem>
+              <msItem xml:id="b2" n="3">
+                <locus from="5b"/>
+                <title xml:lang="en">Order of the Dedication of the Church</title>
+              </msItem>
+              <msItem xml:id="b3" n="4">
+                <locus from="15a"/>
+                <title xml:lang="en">The Annunciation of <persName ref="http://syriaca.org/person/2155">Zacharias</persName>
+                </title>
+              </msItem>
+              <msItem xml:id="b4" n="5">
+                <locus from="30a"/>
+                <title xml:lang="en">The Annunciation of the blessed Virgin</title>
+              </msItem>
+              <msItem xml:id="b5" n="6">
+                <locus from="46b"/>
+                <title xml:lang="en">The Visit of <persName ref="http://syriaca.org/person/624">Mary</persName> to <persName>Elisabeth</persName>
+                </title>
+              </msItem>
+              <msItem xml:id="b6" n="7">
+                <locus from="54b"/>
+                <title xml:lang="en">The Nativity of S. <persName ref="http://syriaca.org/person/1808">John the Baptist</persName>
+                </title>
+              </msItem>
+              <msItem xml:id="b7" n="8">
+                <locus from="63b"/>
+                <title xml:lang="en">The Revelation of S. <persName ref="http://syriaca.org/person/1838">Joseph</persName>
+                </title>
+              </msItem>
+              <msItem xml:id="b8" n="9">
+                <locus from="71b"/>
+                <title xml:lang="en">The Nativity of our Lord</title>
+              </msItem>
+              <msItem xml:id="b9" n="10">
+                <locus from="108b"/>
+                <title xml:lang="en">The Order of the blessed Virgin</title>
+              </msItem>
+              <msItem xml:id="b10" n="11">
+                <locus from="122b"/>
+                <title xml:lang="en">The Massacre of the Innocents</title>
+              </msItem>
+              <msItem xml:id="b11" n="12">
+                <locus from="132b"/>
+                <title xml:lang="en">The Epiphany</title>
+              </msItem>
+              <msItem xml:id="b12" n="13">
+                <locus from="161a"/>
+                <title xml:lang="en">The Decollation of S. <persName ref="http://syriaca.org/person/1808">John the Baptist</persName>
+                </title>
+              </msItem>
+              <msItem xml:id="b13" n="14">
+                <locus from="172a"/>
+                <title xml:lang="en">S. <persName ref="http://syriaca.org/person/1711">Stephen</persName>
+                </title>
+              </msItem>
+              <msItem xml:id="b14" n="15">
+                <locus from="181a"/>
+                <title xml:lang="en">Hymns and prayers of <placeName ref="http://syriaca.org/place/144">Nineveh</placeName>
+                </title>
+              </msItem>
+              <msItem xml:id="b15" n="16">
+                <locus from="192b"/>
+                <title xml:lang="en">The Presentation of our Lord in the Temple</title>
+                <note>On fol. <locus from="192b">192 b</locus>, the name is written <foreign xml:lang="syr">ܐܰܦܳܘܦܰܢܛܺܝ</foreign>, <foreign xml:lang="grc">ⲡ̀̀ⲁⲛⲧⲏⲥⲓⲥ</foreign>; on fol. <locus from="207a">207a</locus>, <foreign xml:lang="syr">ܦ݁ܢܛܣܝ̣ܣ</foreign>
+                </note>
+              </msItem>
+              <msItem xml:id="b16" n="17">
+                <locus from="207a"/>
+                <title xml:lang="en">
+                  <persName ref="http://syriaca.org/person/51">Severus, patriarch of Antioch</persName>, or
+                  any one Saint. </title>
+              </msItem>
+              <msItem xml:id="b17" n="18">
+                <locus from="217a"/>
+                <title xml:lang="en">Order of the Righteous and Priests, and of the Vigil of
+                  the Brethren</title>
+              </msItem>
+              <msItem xml:id="b18" n="19">
+                <locus from="224b"/>
+                <title xml:lang="en">Order of the Dead in general</title>
+              </msItem>
+              <msItem xml:id="b19" n="20">
+                <locus from="231a"/>
+                <title xml:lang="en">Order of hymns and prayers, in time of wrath and
+                  scarcity of rain.</title>
+              </msItem>
+            </msItem>
+          </msContents>
+          <physDesc>
+            <p>Vellum, 15 1/2 in. by 12 5/8, consisting of 233 leaves. The quires, 24 in
+                        number, are signed with letters. In all external respects this volume is
+                        precisely similar to <bibl>Add. 12,146<ptr target="https://bl.syriac.uk/ms/21"/>
+              </bibl>.</p>
+            <objectDesc form="codex">
+              <supportDesc material="perg">
+                <extent>
+                  <measure type="composition" unit="leaf" quantity="233">233 ff.</measure>
+                </extent>
+                <foliation/>
+                <collation/>
+                <condition>
+                  <list>
+                    <item>
+                      <p>Vellum, 15 1/2 in. by 12 5/8, consisting of 233 leaves. The quires, 24 in
+                        number, are signed with letters. In all external respects this volume is
+                        precisely similar to <bibl>Add. 12,146<ptr target="https://bl.syriac.uk/ms/21"/>
+                        </bibl>.</p>
+                    </item>
+                  </list>
+                </condition>
+              </supportDesc>
+              <layoutDesc>
+                <p>Content pending</p>
+              </layoutDesc>
+            </objectDesc>
+            <handDesc hands="3">
+              <handNote xml:id="handNote1" medium="unknown" scope="sole" script="syr">
+                <desc>It was written <date>A. Gr. 1318</date>, <date>A.D. 1007</date>. See additions.</desc>
+              </handNote>
+            </handDesc>
+            <additions>
+              <list>
+                <item xml:id="addition1" n="1">
+                  <label>Colophon</label>
+                  <locus from="233b"/>
+                  <p>At the end of the last order, fol. 233 b, after the words
+                   <foreign xml:lang="syr">ܫܠܡ̣ܬ݁ ܦܠܓܘܬܐ ܩܕܡܝܬܐ ܕܟܪܘܟܝܐ. ܒܟܠܗ̈ܝܢ ܕܝܠܗ̇</foreign>, we find the same metrical colophon as in <bibl>Add. 12,146<ptr target="https://bl.syriac.uk/ms/21"/>
+                    </bibl>.</p>
+                </item>
+                <item xml:id="addition2" n="2">
+                  <label>Colophon</label>
+                  <locus from="233b"/>
+                  <p>Then comes the following note:</p>
+                  <p>
+                    <quote xml:lang="syr">ܐܫܬ݁ܡܠܝ̣ܘ ܟܬ̈ܒܐ ܗܠܝܢ ܩܕܡ̈ܝܐ ܒܫܢܬ ܐܠܦ ܘܬܠܬܡܐܐ ܘܬܡܢܥܣܪ̈ܐ ܕܝܘ̈ܢܝܐ. ܐܝܪܚ ܫܒܛ ܒ܏ܟܗ ܒܗ. ܝܘܡ ܏ܗ ܒܫܒܐ<note type="footnote">These three words are on the margin.</note>.
+                    ܒܬܫ̈ܥ ܫ̈ܥܝܢ ܕܝܘܡܐ. ܒܝܘ̈ܡܝ ܡܪܝ ܝ݊ܘ݊ܚ݊ܢܢ ܦܐܛܪܝܪܟܝܣ ܕܐܢܛܝܘܟܝܐ ܘܡܪܝ ܙ݊ܟ݊ܪܝ݊ܐ ܪܝܫ ܐܦܝ̈ܣܩܘܦܐ ܕܐܠܟܣܢܕܪܝܐ.
+                     ܘܡܪܝ ܬܐ݊ܘ݊ܡܐ ܡܝ̣ܛܪܘܦܘܠܝܛܝܣ ܕܐܘܪܫܠܡ. ܘܡܪܝ ܬܐ݊ܘܡ݊ܐ ܡܝܛܪܘ܏ܦܘܠܝ ܕܛܝ̣ܒܪܝܘܣ ܘܡܪܝ ܬܐܘܦܝܠܘܣ ܡܝܛܪܘ܏ܦܘܠܝ ܕܕܪܡܣܘܩ. ܘܡܪܝ ܝܥ݊ܩܘ݊ܒ ܐܦܝܣܩܘܦܐ ܕܚܠܒܘܢ.
+                      ܕܒܨ̈ܠܘܬܗܘܢ ܢ̇ܫܪܐ ܡܪܝܐ ܫܝܢܗ ܘܫܠܡܗ ܒܥܡܗ ܘܒܥܕܬܗ ܘܒܝܢܬ ܡ̇ܠܟܘ̈ܬܐ ܒܐܪ̈ܒܥ ܦܢܝ̈ܬܗ ܕܥܠܡܐ̣.
+                       ܐܡܝܢ܀ ܘܒܝ̈ܘܡܝ ܡܪܝ ܕܘܝܕ ܪܝܫܕܝܪܐ ܕܡܕܒܪܐ. ܘܐܠܝܐ ܏ܩܫ ܬܪܝܢܐ ܕܝܠܗ. ܠܬܫܒܘܚܬܐ ܘܠܐܝܩܪܐ ܕܬܠܝܬܝ܏ܘ ܩܕܝܫܬܐ.
+                        ܐܫܬ݁ܡ̈ܠ̣ܝܝܢ ܦܢܩ̈ܝܬܐ ܗܠܝܢ ܩܕܡ̈ܝܬܐ ܘܐܬܟܬ̈ܒܝܢ ܐܚ̈ܘܬܗܝܢ ܐܚܪ̈ܝܬܐ.
+                         ܒܐܝ̈ܕܝ ܝܫܘܥ ܚܲܛܝܐ. ܘܟܕ ܠܐ ܫ̇ܘܐ ܡܬܟܲܢܐ ܕܝܪܝܐ ܗ̇ܘ ܕܡܬܝ̣ܕܥ ܒܪ ܐܢܕܪܝܐ ܡܢ ܚܣܢܐ ܕܙܝܕ ܕܒܝܬ ܢܗܪ̈ܝܢ.
+                          ܟܬ̣ܒ ܐ̈ܢܝܢ ܕܝܢ ܒܕܪܬܗ ܕܣܒܐ ܐܒܪܗܡܝܐ. ܐܒܘܥܠܝ ܙܝܟܝܪܝ . . . ܕܬܓܪ̈ܝܬܢܝܐ.
+                          <note type="footnote">This name is written on the margin, and is very indistinct. After <persName xml:lang="syr">ܙܝܟܝܪܝ</persName> one would expect <foreign xml:lang="syr">ܪܝܫܐ</foreign> (see <bibl>Add. 12,146<ptr target="https://bl.syriac.uk/ms/21"/>
+                        </bibl>), but the word looks more like <foreign xml:lang="syr">ܙܝܟܪܝ</foreign> repeated.</note>
+                          ܒܪ ܝܘܚܢܢ ܡܢܚܐ. ܡ̇ܚܣ̣ܐ ܠܗ ܐܠܗܐ ܘܠܥܢ̈ܝ̣ܕܘܗܝ. ܗ̇ܘ ܕܗ̣ܘ ܝ̣ܨܦ ܘܟܬ̣ܒ ܐܢ̈ܝܢ ܐܝܟܢܐ ܕܬܬܣܝ̣ܡ ܣܝ̣ܡܬܐ ܗܕܐ ܪܘܚ̇ܢܝܬܐ ܥܡ ܚܒܪ̈ܬܗ̇.
+                           ܒܥܘܡܪܐ ܩܕܝܫܐ ܕܒܝܬ ܝܠܕܬ ܐܠܗܐ ܕܒܡܕܒܪܐ ܕܐܣܩ̈ܝܛܐ. ܘܢܨ̇ܠܘܢ ܥܠܘܗܝ. ܘܢܐܡ̣ܪܘܢ ܒܠܒܐ ܦܪܝ̣ܫܐ.
+                            ܕܐܘّ ܡܫܝܚܐ ܐܠܗܐ ܚܲܣܐ ܠܗ ܠܐܒܘܥܠܝ ܙܝܟܝܪܝ ܚ̈ܛܗܐ ܘܡܬܥܒܪ̈܏ܢܘ ܗܠܝܢ ܕܐܝܟ ܠܒܝ̣̈ܫܝ ܒܣܪܐ ܣܥ̣ܪ. ܘܐܫܘܝܗܝ ܠܓܠܝ̣ܢܐ ܕܡ̇ܠܟܘܬܟ ܥܡ ܟܢ̣ܫܐ ܕܩ̈ܕܝܫܐ ܕܝܠܟ.
+                             ܘܥܡܗ ܠܐܒܐ ܕܝܠܗ ܘܠܐܡܐ ܕܝܠܗ. ܘܠܟܠܗܘܢ ܥ̈ܢܝ܏ܕܘ ܡ̇ܚܣܐ ܠܗܘܢ ܐܠܗܐ̣ ܐܡܝܢ܀ ܡܦܝ̣ܣ ܐܢܐ ܠܟܘܢ ܐܘّ ܐܒ̈ܗܬܐ ܩ̈ܕܝܫܐ ܕܒܟܬܒܐ ܗܢܐ ܥܬܝ̣ܕܝܢ ܠܡ̣ܦܓܥ ܕܐܢ ܐܝܬ ܦܘܕܐ.
+                              ܬ݁ܪܨ̣ܘ ܘܠܐ ܬܥ̣ܕܠܘܢ ܡܛܠ ܕܡܢ ܒܠܲܝ ܨܚܚܐ̣ ܡܪܟܒܐ ܐܝܬ܏ܘ ܣܲܓܗ. ܐܠܐ ܐܬܥ̣ܗܕܘ ܠܝܫܘܥ ܚܲܛܝܐ.
+                               ܘܗܟܢܐ ܐܡ̣ܪܘ ܕܐܬܕܟܪ ܡܫܝܚܐ ܐܠܗܐ ܡܐ ܕܐ̇ܬܐ ܐܢܬ ܒܡ̇ܠܟܘܬܟ ܠܗ ܠܟܬܘܒܐ ܕܘܝ̇ܐ.
+                                ܘܠܐܒܗ̈ܘܗܝ ܘܠܐܚ̈ܘܗܝ ܘܠܥܢ̈ܝ̣ܕܘܗܝ. ܘܠܩ̇ܪܘܝܐ ܕܐܡ̇ܪ ܐܡܝܢ܀ ܡܪܝܐ ܢܚܲܣܐ ܠܟܠ ܕܐܫܬܘܬܦ ܒܟ̈ܬܒܐ ܗܠܝܢ. ܐܢ ܒܡܠܬܐ̣ ܘܐܢ ܒܥܒ̇ܕܐ ܐܡܝܢ.</quote>
+                  </p>
+                  <p>"These former books (or first volumes) were
+                    finished in the year of the Greeks <origDate datingMethod="Seleucid" when-custom="1318">1318</origDate> (<origDate calendar="Gregorian" when="1007">A.D. 1007</origDate>), on Thursday, the 25th of
+                    the month of Shĕbāt, at the ninth hour of the day, in the days of
+                      <persName ref="http://syriaca.org/person/1021">Mār John, patriarch of Antioch</persName>,<note type="footnote">
+                      <persName ref="http://syriaca.org/person/1021">John viii. bar 'Abdūn</persName>.
+                    See <bibl>Assemani, Bibl. Orient., t. ii., p. 352</bibl>; <bibl>Le Quien, Oriens Christ, t. ii.,
+                    col. 1380</bibl>.</note> and <persName>Mar Zachariah, archbishop of Alexandria</persName>,<note type="footnote">
+                    See <bibl>Renaudot, Hist. Patriarch. Alexandr.Jacobit., p. 386</bibl>; <bibl>Le Quien,
+                      Oriens Christ., t. ii., col. 480.</bibl>
+                    </note> and <persName>Mār Thomas,
+                      metropolitan of Jerusalem</persName>, and <persName>Mār Thomas, metropolitan
+                      of Tiberias</persName>, and<persName> Mār Theophilus, metropolitan of
+                      Damascus</persName>, and <persName>Mār Jacob, bishop of
+                    Halbūn</persName>,—may the Lord, through their prayers, make His rest and peace
+                    dwell with His people and His Church, Amen—and in the days of Mār <persName>David</persName>, abbat
+                    of the Desert, and of <persName>Elias</persName> the priest, his second (in authority). To the glory
+                    and honour of the Holy Trinity, these former books (or first volumes) were
+                    finished, and their latter fellows (the second volumes) were written, by the
+                    hands of <persName>Yeshūa'</persName> the sinner, and, though unworthy, called a monk, who is known
+                    as <persName>Bar Andreas</persName> (the son of <persName>Andrew</persName>), from <placeName>Ḥiṣn Zaid</placeName> in <placeName ref="http://syriaca.org/place/1452">Mesopotamia</placeName>. He wrote them
+                    in the house of the elder, venerable as <persName>Abraham</persName>, <persName>Abū 'Alī Zakarīyā</persName>, the
+                    chief (?) of the Tagritans, the son of the deceased <persName>John</persName>—may God pardon him and
+                    his dead—who took pains and wrote them (i.e. got them written), in order that
+                    this spiritual treasure might be deposited, with its fellows, in <placeName ref="http://syriaca.org/place/360">the holy
+                      convent of the Mother of God</placeName> in the desert of <placeName ref="http://syriaca.org/place/289">Scete</placeName>, and that they might pray
+                    for him," etc. "I beseech you, O holy Fathers, who may hereafter fall in with
+                    this book, if there be an error in it, correct it, and do not blame, because the
+                    greater part of it (<foreign xml:lang="syr">ܣ̇ܓܗ</foreign> = <foreign xml:lang="syr">ܣܘܓ̣ܐܗ</foreign>?) was put together without a manuscript (to
+                    copy from); but be mindful of the sinner <persName>Yeshua'</persName>, and say:" etc.</p>
+                </item>
+                <item xml:id="addition3" n="3">
+                  <locus from="233b"/>
+                  <p>Below, there is written, in a different hand, a note mentioning the name of the
+                    priest <persName>'Abdā</persName> as one who had taken pains with these volumes (namely, in
+                    correcting them).</p>
+                  <p>
+                    <quote xml:lang="syr">ܗܘܼܬ݀ ܝܨܝܦܘܬܐ ܘܫܩܠܛܥܢܐ ܥܠ ܗܠܝܢ ܟ̈ܬܒܐ <sic>ܥܒ̣ܕܐ</sic> ܩܫܝܫܐ
+                      ܘܕܝܪܝܐ ܢ̇ܟ̣ܦܐ ܡܪܝܐ ܢܚܲܣܐ ܠܗ ܘܠܥܢ̈ܝܕܘܗܝ ܐܡܝܢ.</quote>
+                  </p>
+                </item>
+                <item xml:id="addition4" n="4">
+                  <locus from="233b"/>
+                  <p>Farther down, there are two notes, written by one hand, recording the names of
+                    the priests <persName>Kaumā</persName> and <persName>Joseph
+                      Sīmandāyā</persName>, monks of <placeName ref="http://syriaca.org/place/360">the convent of S. Mary Deipara</placeName>.</p>
+                  <p>
+                    <quote xml:lang="syr">ܡܪܝܐ ܢܚܲܣܐ ܠܩܘܡ̣ܐ ܩܫܝܫܐ ܕܝܠܗ ܕܥܘܡܪܐ ܘܠܐܒܗ̈ܘܗܝ̣ ܐܡܝܢ.܀ ܡܪܝܐ
+                      ܢܚܲܣܐ ܠܝܘܣܦ ܣܝܡܢܕܝܐ ܩܫܝܫܐ ܕܝܠܗ ܕܥܘܡܪܐ̣ ܐܡܝܢ܀</quote>
+                  </p>
+                </item>
+              </list>
+            </additions>
+            <bindingDesc>
+              <p>Content pending</p>
+            </bindingDesc>
+            <sealDesc>
+              <p>Content pending</p>
+            </sealDesc>
+            <accMat/>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate calendar="Gregorian" when="1007">A.D. 1007</origDate>
+              <origDate datingMethod="Seleucid" when-custom="1318">A. Gr. 1318</origDate>
+              <origPlace/>
+            </origin>
+            <provenance/>
+            <acquisition/>
+          </history>
+          <additional>
+            <adminInfo>
+              <recordHist>
+                <source>Manuscript description based on <bibl>
+                    <ref target="#Wrightpart">Wright's
+                            Catalogue</ref>
+                  </bibl>, abbreviated by the Syriaca.org editors.</source>
+              </recordHist>
+              <note/>
+            </adminInfo>
+            <listBibl>
+              <bibl xml:id="Wrightpart">
+                <author>William Wright</author>
+                <title xml:lang="en">Catalogue of Syriac Manuscripts in the British Museum Acquired
+                        since the Year 1838</title>
+                <pubPlace>London</pubPlace>
+                <date>1870</date>
+                <ptr target="http://syriaca.org/bibl/8"/>
+                <citedRange unit="entry">CCCXXI</citedRange>
+                <citedRange unit="pp">1:264-266</citedRange>
+              <ref type="internet-archive-pdf" target="https://archive.org/details/catalogueofsyria01brituoft/page/264"/>
+              </bibl>
+            </listBibl>
+          </additional>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+        <editorialDecl>
+            <interpretation>
+                <p>Description is based on Wright's Catalogue without consultation of physical
+                    manuscripts. Foliation is approximate. Wright often does not indicate ending folia so
+                    those have been assumed based on beginning folia.</p>
+                <p>Scribal notes which could not be more clearly classified based on Wright's descriptions
+                    have been identified as &lt;addition&gt;s whether they occur in the margins or the body
+                    of the manuscript.</p>
+                <p>In general, we have classified as an &lt;msItem&gt; as much of the manuscript contents
+                    as possible, including tables of contents and indices.</p>
+            </interpretation>
+        </editorialDecl>
+        <classDecl>
+            <taxonomy xml:id="Wright-BL-Taxonomy">
+                <bibl>
+                    
+                    <ptr target="http://syriaca.org/documentation/Wright-BL-Taxonomy.html"/>
+                </bibl>
+                <category xml:id="biblical-manuscripts">
+                    <category xml:id="bible-ot">
+                        <catDesc>Old Testament</catDesc>
+                    </category>
+                    <category xml:id="bible-nt">
+                        <catDesc>New Testament</catDesc>
+                    </category>
+                    <category xml:id="bible-apocrypha">
+                        <catDesc>Apocrypha</catDesc>
+                    </category>
+                    <category xml:id="bible-punctuation">
+                        <catDesc>Punctuation</catDesc>
+                    </category>
+                </category>
+                <category xml:id="service-books">
+                    <category xml:id="psalter">
+                        <catDesc>Psalters</catDesc>
+                    </category>
+                    <category xml:id="lectionaries">
+                        <catDesc>Lectionaries</catDesc>
+                    </category>
+                    <category xml:id="missals">
+                        <catDesc>Missals</catDesc>
+                    </category>
+                    <category xml:id="sacerdotals">
+                        <catDesc>Sacerdotals</catDesc>
+                    </category>
+                    <category xml:id="choral">
+                        <catDesc>Choral Books</catDesc>
+                    </category>
+                    <category xml:id="hymns">
+                        <catDesc>Hymns</catDesc>
+                    </category>
+                    <category xml:id="prayers">
+                        <catDesc>Prayers</catDesc>
+                    </category>
+                    <category xml:id="funerals">
+                        <catDesc>Funeral Services</catDesc>
+                    </category>
+                </category>
+                <category xml:id="theology">
+                    <category xml:id="theo-single">
+                        <catDesc>Individual Authors</catDesc>
+                    </category>
+                    <category xml:id="theo-collected">
+                        <catDesc>Collected Authors</catDesc>
+                    </category>
+                    <category xml:id="theo-catenae">
+                        <catDesc>Catenae Patrum and Demonstrations against Heresies</catDesc>
+                    </category>
+                    <category xml:id="theo-anonymous">
+                        <catDesc>Anonymous Works</catDesc>
+                    </category>
+                    <category xml:id="theo-council">
+                        <catDesc>Councils of the Church and Ecclesiastical Canons</catDesc>
+                    </category>
+                </category>
+                <category xml:id="wright-history">
+                    <category xml:id="history">
+                        <catDesc>History</catDesc>
+                    </category>
+                </category>
+                <category xml:id="lives">
+                    <category xml:id="lives-collect">
+                        <catDesc>Collected Lives</catDesc>
+                    </category>
+                    <category xml:id="lives-single">
+                        <catDesc>Single Lives</catDesc>
+                    </category>
+                </category>
+                <category xml:id="scientific-lit">
+                    <category xml:id="sci-logic">
+                        <catDesc>Logic and Rhetoric</catDesc>
+                    </category>
+                    <category xml:id="sci-grammar">
+                        <catDesc>Grammar and Lexicography</catDesc>
+                    </category>
+                    <category xml:id="sci-ethics">
+                        <catDesc>Ethics</catDesc>
+                    </category>
+                    <category xml:id="sci-medicine">
+                        <catDesc>Medicine</catDesc>
+                    </category>
+                    <category xml:id="sci-agriculture">
+                        <catDesc>Agriculture</catDesc>
+                    </category>
+                    <category xml:id="sci-chemistry">
+                        <catDesc>Chemistry</catDesc>
+                    </category>
+                    <category xml:id="sci-natural-history">
+                        <catDesc>Natural History</catDesc>
+                    </category>
+                </category>
+                <category xml:id="wright-fly-leaves">
+                    <category xml:id="fly-leaves">
+                        <catDesc>Fly Leaves</catDesc>
+                    </category>
+                </category>
+                <category xml:id="appendices">
+                    <category xml:id="appendix-a">
+                        <catDesc>Appendix A</catDesc>
+                    </category>
+                    <category xml:id="appendix-b">
+                        <catDesc>Appendix B</catDesc>
+                    </category>
+                </category>
+              <category xml:id="unclassified">
+                <catDesc>Unclassified</catDesc>
+              </category>
+            </taxonomy>
+        </classDecl>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+            <language ident="syr">Unvocalized Syriac of any variety or period</language>
+            <language ident="syr-Syre">Syriac in Estrangela</language>
+            <language ident="syr-Syrj">Vocalized West Syriac</language>
+            <language ident="syr-Syrn">Vocalized East Syriac</language>
+            <language ident="syr-x-syrm">Melkite Syriac</language>
+            <language ident="syr-x-syrp">Palestinian Syriac</language>
+            <language ident="ar-Syrc">Unvocalized or Undetermined Arabic Garshuni</language>
+            <language ident="ar-Syrj">Arabic Garshuni in Vocalized West Syriac Script</language>
+            <language ident="ar-Syrn">Arabic Garshuni in Vocalized East Syriac Script</language>
+            <language ident="en">English</language>
+            <language ident="ar">Arabic</language>
+            <language ident="fr">French</language>
+            <language ident="de">German</language>
+            <language ident="la">Latin</language>
+            <language ident="grc">Ancient Greek</language>
+            <language ident="cop">Coptic</language>
+        </langUsage>
+      <textClass>
+        <keywords scheme="#Wright-BL-Taxonomy">
+          <list>
+            <item>
+              <ref target="#choral"/>
+            </item>
+          </list>
+        </keywords>
+      </textClass>
+    </profileDesc>
+    <revisionDesc status="draft">
+      <change who="https://bl.syriac.uk/documentation/editors.xml#kurban" when="2023-04-21-05:00">CHANGED: added or corrected folio extent values</change>
+      <change who="https://bl.syriac.uk/documentation/editors.xml#jarnwine" when="2022-04-21">Edits to msContents, condition, handDesc, and additions</change>
+      <change who="https://bl.syriac.uk/documentation/editors.xml#srophe-util" when="2021-12-06">CHANGED: Added project metadata; metadata from Wright Decoder; msItem, handDesc, and additions enumeration; Wright Taxonomy designation</change>
+      <change who="https://bl.syriac.uk/documentation/editors.xml#rbrasoveanu">Initial TEI encoding.</change>
+      <change type="planned" subtype="missing">Missing unit attribute in element citedRange for Wright's numbering</change>
+    </revisionDesc>
+  </teiHeader>
+  <facsimile>
+    <formula>Content pending</formula>
+  </facsimile>
+  <text>
+    <body>
+      <bibl>Content pending</bibl>
+    </body>
+  </text>
+</TEI>
