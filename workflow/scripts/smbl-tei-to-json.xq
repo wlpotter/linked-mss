@@ -19,6 +19,8 @@ declare variable $ms-obj-type-uri := "https://wlpotter.github.io/ontologies/manu
 
 declare variable $cod-unit-type-uri := "https://wlpotter.github.io/ontologies/manuscripts#CodicologicalUnit";
 
+declare variable $wright-taxonomy-uri-base := "http://syriaca.org/documentation/Wright-BL-Taxonomy.html";
+
 (:~
 : Taks a tei:msPart, or tei:msDesc that does not have an msPart
 : Takes a string giving the part identifier, should be a URI
@@ -28,7 +30,7 @@ declare variable $cod-unit-type-uri := "https://wlpotter.github.io/ontologies/ma
 declare function local:create-part-map($part as node(), $partId as xs:string)
 as item() {
   let $type := array {
-    $part/head/listRelation[@type="Wright-BL-Taxonomy"]/relation[@ref="http://purl.org/dc/terms/type"]/@passive/string()
+    $wright-taxonomy-uri-base || $part/head/listRelation[@type="Wright-BL-Taxonomy"]/relation[@ref="http://purl.org/dc/terms/type"]/@passive/string()
 }
   let $label := $part/msIdentifier/altIdentifier/idno[@type="BL-Shelfmark-display"]/text()
   let $idnos := local:create-idnos-map($part/msIdentifier, ("BL-Shelfmark", "Wright-BL-Roman"))
