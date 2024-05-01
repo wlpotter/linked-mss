@@ -30,7 +30,8 @@ declare variable $wright-taxonomy-uri-base := "http://syriaca.org/documentation/
 declare function local:create-part-map($part as node(), $partId as xs:string)
 as item() {
   let $type := array {
-    $wright-taxonomy-uri-base || $part/head/listRelation[@type="Wright-BL-Taxonomy"]/relation[@ref="http://purl.org/dc/terms/type"]/@passive/string()
+    for $subj in $part/head/listRelation[@type="Wright-BL-Taxonomy"]/relation[@ref="http://purl.org/dc/terms/type"]/@passive/string()
+    return $wright-taxonomy-uri-base || $subj
 }
   let $label := $part/msIdentifier/altIdentifier/idno[@type="BL-Shelfmark-display"]/text()
   let $idnos := local:create-idnos-map($part/msIdentifier, ("BL-Shelfmark", "Wright-BL-Roman"))
